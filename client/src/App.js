@@ -9,8 +9,7 @@ import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CapsuleDetails from "./pages/CapsuleDetails/CapsuleDetails";
 import UserContext from "./pages/UserContext/UserContext";
-// import DisplayCapsule from "./pages/DisplayCapsule/DisplayCapsule";
-
+import DisplayCapsule from "./pages/DisplayCapsule/DisplayCapsule";
 function App() {
   const [loginModalVisible, setLoginModalVisible] = useState(false);
   const [registerModalVisible, setRegisterModalVisible] = useState(false);
@@ -41,17 +40,14 @@ function App() {
             <Routes>
               <Route path="/" element={<Landing />} />
                   <Route
-                    path="/landing"
+                    path="/dashboard"
                     element={<Dashboard username={user} />}
                   />
                   <Route
                     path="/capsule-details"
                     element={<CapsuleDetails user={user} />}
                   />
-                  {/* <Route
-                    path="/DisplayCapsule"
-                    element={<DisplayCapsule user={user} />}
-                  /> */}
+                  <Route path="/display-capsule/:id" element={<DisplayCapsule />} />
             </Routes>
           </main>
           <Login
@@ -65,17 +61,10 @@ function App() {
               onSuccess={handleRegistrationSuccess}
             />
           )}
-          {/* <DisplayCapsule
-            visible={DisplayCapsule}
-            onClose={() => DisplayCapsule(false)}
-            onSuccess={DisplayCapsule}
-          /> */}
-
           <Footer />
         </UserContext.Provider>
       </div>
     </Router>
   );
 }
-
 export default App;

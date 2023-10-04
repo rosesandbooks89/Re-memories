@@ -39,16 +39,17 @@ function App() {
           />
           <main className="app-content">
             <Routes>
-              <Route path="/" element={<Landing />} />
-                  <Route
-                    path="/dashboard"
-                    element={<Dashboard username={user} />}
-                  />
-                  <Route
-                    path="/capsule-details"
-                    element={<CapsuleDetails user={user} />}
-                  />
-                  {/* <Route
+              <Route 
+                path="/dashboard" element={<Landing />} />
+              <Route
+                path="/dashboard"
+                element={<Dashboard username={user} />}
+              />
+              <Route
+                path="/capsule-details"
+                element={<CapsuleDetails user={user} />}
+              />
+              {/* <Route
                     path="/DisplayCapsule"
                     element={<DisplayCapsule user={user} />}
                   /> */}

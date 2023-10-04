@@ -7,7 +7,6 @@ const resolvers = {
     getAllCapsules: async () => {
       try {
         const capsules = await Capsule.find();
-        console.log("Fetched capsules:", capsules);  // Added logging here
         return capsules;
       } catch (error) {
         console.error("Error fetching all capsules:", error);
@@ -17,7 +16,6 @@ const resolvers = {
     getTimeCapsule: async (parent, { id }) => {
       try {
         const capsule = await Capsule.findById(id);
-        console.log(`Fetched capsule with ID ${id}:`, capsule);  // Added logging here
         return capsule;
       } catch (error) {
         console.error(`Error fetching capsule with ID ${id}:`, error);
@@ -27,13 +25,11 @@ const resolvers = {
   },
   Mutation: {
     login: async (parent, { username, password }) => {
-      console.log('Login mutation triggered. Attempting to login with:', username);
       const user = await User.findOne({ username });
       if (!user) {
         console.error('User not found in database:', username);
         throw new AuthenticationError('Invalid username or password');
       }
-      console.log('User retrieved from the database:', user);
       const validPassword = await user.isCorrectPassword(password);
       if (!validPassword) {
         console.error('Password does not match for user:', username);
@@ -47,13 +43,11 @@ const resolvers = {
       return user;
     },
     registerUser: async (parent, { username, email, password }) => {
-      console.log('Register mutation triggered with details:', username, email, password);
       const user = new User({ username, email, password });
       await user.save();
       return user;
     },
     createCapsule: async (parent, { input }) => {
-      console.log('Create capsule mutation triggered. Creating capsule with input:', input);
       try {
         const capsule = new Capsule({
           title: input.title,
@@ -62,9 +56,7 @@ const resolvers = {
           openDate: input.openDate,
           photoURLs: input.photoURLs,
         });
-        console.log('Capsule to be saved:', capsule);
         await capsule.save();
-        console.log('Successfully created capsule:', capsule);
         return capsule;
       } catch (error) {
         console.error("Error in createCapsule resolver:", error);
@@ -95,5 +87,4 @@ const resolvers = {
     },
   },
 };
-console.log('resolvers loaded');
 module.exports = resolvers;

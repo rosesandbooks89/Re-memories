@@ -22,7 +22,6 @@ module.exports = async function seedUsers() {
   try {
     await User.deleteMany({});
     await User.create(userData);
-    console.log("User seed successful!");
   } catch (err) {
     console.error(err);
   }

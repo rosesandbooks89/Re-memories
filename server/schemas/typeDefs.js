@@ -34,5 +34,4 @@ const typeDefs = gql`
     photoURLs: [String]
   }
 `;
-console.log('typeDefs loaded');
 module.exports = typeDefs;

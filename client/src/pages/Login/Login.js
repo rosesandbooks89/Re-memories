@@ -13,17 +13,12 @@ const Login = ({ visible, onClose, onSuccess }) => {
 
   const onFinish = async (values) => {
     setLoading(true);
-    console.log("Form values:", values);
     try {
       const { data } = await login({ variables: { ...values } });
-      console.log("Login Response:", data);
 
       if (data.login && data.login._id) {
-        console.log("Login Successful, User Data:", data.login);
-
-
         onSuccess(data.login.username);
-        
+
         message.success("Login successful");
         onClose();
         navigate("/dashboard");

@@ -10,11 +10,11 @@ const { TextArea } = Input;
 const CapsuleDetails = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  console.log("User from context:", user);
+  
   const [createCapsule] = useMutation(CREATE_CAPSULE);
   const [fileList, setFileList] = useState([]);
   const handleSubmit = async (values) => {
-    console.log("Received form values:", values);
+  
     if (!user || !user._id) {
       console.error("User is not defined or missing _id attribute");
       return;
@@ -30,14 +30,11 @@ const CapsuleDetails = () => {
         file.response ? file.response.url : null
       ),
     };
-    console.log("Submitting form with formatted values:", submitValues);
     try {
       const response = await createCapsule({
         variables: { input: submitValues },
       });
-      console.log("Server Response after capsule creation:", response);
       if (response.data && response.data.createCapsule) {
-        console.log("Capsule created:", response.data.createCapsule);
         navigate("/dashboard");
       } else {
         console.warn("Unexpected response structure from server");

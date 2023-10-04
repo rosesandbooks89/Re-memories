@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const { jwtSecret } = require('../config/config');
 
 const withAuth = (req, res, next) => {
-  console.log("[MIDDLEWARE]: withAuth triggered");
 
   const token = req.headers['authorization']?.split(' ')[1];
 
@@ -17,7 +16,6 @@ const withAuth = (req, res, next) => {
       return res.status(401).send("Invalid authentication token");
     }
     req.user = decoded;
-    console.log("[MIDDLEWARE]: Token decoded successfully:", decoded);
     next(); 
   });
 };

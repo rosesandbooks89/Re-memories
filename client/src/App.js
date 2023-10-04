@@ -37,7 +37,7 @@ function App() {
             }}
           />
           <main className="app-content">
-            <Routes>
+          <Routes>
               <Route path="/" element={<Landing />} />
                   <Route
                     path="/dashboard"
@@ -47,7 +47,10 @@ function App() {
                     path="/capsule-details"
                     element={<CapsuleDetails user={user} />}
                   />
-                  <Route path="/display-capsule/:id" element={<DisplayCapsule />} />
+                  <Route
+                    path="/display-capsule/:id"
+                    element={<DisplayCapsule/>}
+                  />
             </Routes>
           </main>
           <Login

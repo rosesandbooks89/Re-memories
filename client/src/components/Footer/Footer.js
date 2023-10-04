@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <Row justify="center" align="middle">
         <Col xs={{ span: 24, order: 2 }} md={{ span: 8, order: 1 }}>
-          <p>© 2023 Rememories</p>
+          <p>© 2023 re-Memories</p>
         </Col>
         <Col xs={{ span: 24, order: 1 }} md={{ span: 16, order: 2 }}>
           <div className="footer-links">

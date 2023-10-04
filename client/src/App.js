@@ -39,8 +39,8 @@ function App() {
           />
           <main className="app-content">
             <Routes>
-              {/* <Route 
-                path="/dashboard" element={<Landing />} /> */}
+              <Route 
+                path="/" element={<Landing />} />
               <Route
                 path="/dashboard"
                 element={<Dashboard username={user} />}

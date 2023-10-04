@@ -20,10 +20,10 @@ const DisplayCapsule = () => {
     navigate(`/edit/${capsule._id}`);
  };
 
- const handleDelete = () => {
-    message.success("Capsule deleted");
-    navigate("/");
- };
+//  const handleDelete = () => {
+//     message.success("Capsule deleted");
+//     navigate("/");
+//  };
  const handleOpen = () => {
     navigate(`/open/${capsule._id}`);
  };

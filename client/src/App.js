@@ -33,17 +33,15 @@ function App() {
             onRegisterClick={() => setRegisterModalVisible(true)}
             isAuthenticated={isAuthenticated}
             onLogout={() => {
-              // setIsAuthenticated(false);
+              setIsAuthenticated(false);
               setUser(null);
             }}
           />
           <main className="app-content">
             <Routes>
               <Route path="/" element={<Landing />} />
-              {isAuthenticated && (
-                <>
                   <Route
-                    path="/dashboard"
+                    path="/landing"
                     element={<Dashboard username={user} />}
                   />
                   <Route
@@ -54,8 +52,6 @@ function App() {
                     path="/DisplayCapsule"
                     element={<DisplayCapsule user={user} />}
                   /> */}
-                </>
-              )}
             </Routes>
           </main>
           <Login

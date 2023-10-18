@@ -38,6 +38,8 @@
   "homepage": "https://github.com/kmarie0420/Project-Guess#readme",
   "devDependencies": {
     "css-loader": "^6.8.1",
-    "style-loader": "^3.3.3"
+    "style-loader": "^3.3.3",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
   }
 }
